@@ -18,8 +18,6 @@ import useStyles from "./styles";
 const PlaceDetails = ({ place, selected, refProp }) => {
   const classes = useStyles();
 
-  console.log("this if from details ", selected);
-
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
