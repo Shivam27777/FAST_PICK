@@ -12,6 +12,8 @@ export default makeStyles(() => ({
   },
   pointer: {
     cursor: 'pointer',
+    width : '-webkit-fill-available',
+
   },
 }));
 

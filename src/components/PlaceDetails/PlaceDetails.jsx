@@ -6,8 +6,12 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles';
 
-const PlaceDetails = ({place}) => {
+const PlaceDetails = ({place, selected, refProp}) => {
     const classes = useStyles();
+
+    console.log("this if from details " , selected);
+    
+    if (selected) refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     return (
       
@@ -18,6 +22,10 @@ const PlaceDetails = ({place}) => {
             />
             <CardContent>
                 <Typography gutterBottom variant='h5'>{place.name}</Typography>
+                <Box display='flex' justifyContent='space-between'>
+                    <Rating value={Number(place.rating)} readOnly />
+                    <Typography gutterBottom variant='subtitle1'>{place.ranking_position} out of {place.num_reviews}</Typography>
+                </Box>
                 <Box display='flex' justifyContent='space-between'>
                     <Typography variant='subtitle1' >Price</Typography>
                     <Typography gutterBottom variant='subtitle1'>{place.price_level}</Typography>
@@ -39,12 +47,12 @@ const PlaceDetails = ({place}) => {
                     <Chip key={name} size='small' label={name} className={classes.chip} />
                 ))}
                 {place?.address && (
-                    <Typography gutterBottom variant='subtitle2' color='testSecondary' className={classes.subtitle}>
+                    <Typography gutterBottom variant='subtitle2' color='textSecondary' className={classes.subtitle}>
                         <LocationOnIcon /> { place.address}
                     </Typography>
                 )}
                  {place?.phone && (
-                    <Typography gutterBottom variant='subtitle2' color='testSecondary' className={classes.spacing}>
+                    <Typography gutterBottom variant='subtitle2' color='textSecondary' className={classes.spacing}>
                         <PhoneIcon /> { place.phone}
                     </Typography>
                 )}
