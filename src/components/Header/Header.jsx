@@ -7,7 +7,7 @@ import useStyles from "./styles";
 const Header = ({ setCoordinates }) => {
   const classes = useStyles();
   const [autoComplete, setAutoComplete] = useState(null);
-
+// for Auto complete
   const onload = (autoC) => setAutoComplete(autoC);
 
   const onPlaceChanged = () => {
